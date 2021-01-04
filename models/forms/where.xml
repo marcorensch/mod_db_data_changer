@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-    <field type="text" name="w_column" label="MOD_DB_DA_CH_WHERE_COLNAME_LBL" description="MOD_DB_DA_CH_WHERE_COLNAME_DES" />
-    <field type="text" name="w_col_val" label="MOD_DB_DA_CH_WHERE_COLVAL_LBL" description="MOD_DB_DA_CH_WHERE_COLVAL_DES" />
+    <field type="radio" name="type" label="" description="" default="and" class="btn-group">
+        <option value="and">and</option>
+        <option value="or">or</option>
+    </field>
+    <field type="text" name="w_column" label="MOD_DB_DA_CH_WHERE_COLNAME_LBL" description="MOD_DB_DA_CH_WHERE_COLNAME_DES" required="true" />
+    <field type="radio" name="operator" label="" description="" default="is" class="btn-group">
+        <option value="is">MOD_DB_DA_CH_IS</option>
+        <option value="is_not">MOD_DB_DA_CH_IS_NOT</option>
+        <option value="larger">MOD_DB_DA_CH_LARGER</option>
+        <option value="larger_equal">MOD_DB_DA_CH_LARGER_EQ</option>
+        <option value="smaller">MOD_DB_DA_CH_SMALLER</option>
+        <option value="smaller_equal">MOD_DB_DA_CH_SMALLER_EQ</option>
+        <option value="in">MOD_DB_DA_CH_IN</option>
+    </field>
+    <field showon="operator:in" type="spacer" name="in_description" label="MOD_DB_DA_CH_WHERE_IN_DES"/>
+    <field type="text" name="w_col_val" label="MOD_DB_DA_CH_WHERE_COLVAL_LBL" description="MOD_DB_DA_CH_WHERE_COLVAL_DES" required="true" />
 </form>

@@ -52,6 +52,10 @@
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
 				</field>
+				<field name="prevent_full_del" type="radio" default="1" filter="integer" label="Prevent Full Deletion" class="btn-group btn-group-yesno">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
 			</fieldset>
 		</fields>
 	</config>

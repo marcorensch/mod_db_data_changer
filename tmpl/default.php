@@ -17,6 +17,7 @@ foreach ($responses as $response):
 ?>
 <div class="status_<?php if(array_key_exists('status',$response)) echo $response['status'];?>">
     <span><?php if(array_key_exists('status_text',$response)) echo $response['status_text'];?></span>
+    <?php if($params->get('debug',1) && array_key_exists('dump',$response)) echo '<div>' . $response['dump'] . '</div>';?>
 </div>
 
 <?php
