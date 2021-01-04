@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field type="text" name="u_column" label="MOD_DB_DA_CH_UPDATE_COLNAME_LBL" description="MOD_DB_DA_CH_UPDATE_COLNAME_DES" />
+    <field type="radio" name="is_date" default="0" label="MOD_DB_DA_CH_UPDATE_VALDATE_LBL" class="btn-group btn-group-yesno">
+        <option value="0">JNo</option>
+        <option value="1">JYes</option>
+    </field>
+    <field showon="is_date:0" type="text" name="u_col_val" label="MOD_DB_DA_CH_UPDATE_COLVAL_LBL" description="MOD_DB_DA_CH_UPDATE_COLVAL_DES" />
+    <field type="spacer" hr="true" name="endOfUpdate" />
+</form>

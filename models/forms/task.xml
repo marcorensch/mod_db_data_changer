@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field name="task_type" type="list" label="MOD_DB_DA_CH_TASK_TYPE_LBL" description="MOD_DB_DA_CH_TASK_TYPE_LBL">
+        <option value="update">MOD_DB_DA_CH_TASK_TYPE_UPD</option>
+        <option value="remove">MOD_DB_DA_CH_TASK_TYPE_DEL</option>
+    </field>
+    <field
+            type="text"
+            name="table"
+            label="MOD_DB_DA_CH_TBL_LBL"
+            description="MOD_DB_DA_CH_TBL_DES"
+            pattern="^#__([a-z]|_)*" />
+    <field type="spacer" name="where_spacer" label="MOD_DB_DA_CH_WHERE_LBL" />
+    <field
+            name="where"
+            type="subform"
+            formsource="/modules/mod_db_data_changer/models/forms/where.xml"
+            multiple="true"
+            label=""
+            description="MOD_DB_DA_CH_WHERE_DES" >
+    </field>
+    <field showon="task_type:update" type="spacer" name="update_spacer" label="MOD_DB_DA_CH_UPDATE_LBL" />
+    <field
+            showon="task_type:update"
+            name="update"
+            type="subform"
+            formsource="/modules/mod_db_data_changer/models/forms/update.xml"
+            multiple="true"
+            label=""
+            description="MOD_DB_DA_CH_UPDATE_DES" >
+    </field>
+    <field type="spacer" name="task_end_info" label="MOD_DB_DA_CH_TASK_END_DES" />
+    <field type="spacer" name="task_end" hr="true" />
+</form>

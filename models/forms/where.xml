@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field type="text" name="w_column" label="MOD_DB_DA_CH_WHERE_COLNAME_LBL" description="MOD_DB_DA_CH_WHERE_COLNAME_DES" />
+    <field type="text" name="w_col_val" label="MOD_DB_DA_CH_WHERE_COLVAL_LBL" description="MOD_DB_DA_CH_WHERE_COLVAL_DES" />
+</form>

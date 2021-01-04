@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.8" client="site" method="upgrade">
+	<name>MOD_DB_DATA_CHANGER</name>
+	<creationDate>04.01.2021</creationDate>
+	<author>marco</author>
+	<authorEmail>your@email.com</authorEmail>
+	<authorUrl>http://your.url.com</authorUrl>
+	<copyright>A copyright</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0</version>
+	<description>MOD_DB_DATA_CHANGER_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_db_data_changer">mod_db_data_changer.php</filename>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<folder>models</folder>
+		<filename>mod_db_data_changer.xml</filename>
+		<filename>helper.php</filename>
+	</files>
+
+	<!-- Update servers -->
+	<updateservers>
+		<server type="extension" priority="1" name="db_data_changer">https://update.nx-designs.ch/mod_db_data_changer.xml</server>
+	</updateservers>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_db_data_changer/models/fields">
+				<field
+					type="text"
+					name="token"
+					label="MOD_DB_DA_CH_TOKEN_LBL"
+					description="MOD_DB_DA_CH_TOKEN_DES"
+					required="true"
+					pattern="\S*"/>
+				<field
+					name="tasks"
+					type="subform"
+					formsource="/modules/mod_db_data_changer/models/forms/task.xml"
+					multiple="true"
+					label="MOD_DB_DA_CH_TASK_LBL"
+					description="MOD_DB_DA_CH_TASK_DES" />
+			</fieldset>
+			<fieldset
+					name="advanced">
+				<field name="show_messages" type="radio" default="1" filter="integer" label="MOD_DB_DA_CH_MSGS_LBL" class="btn-group btn-group-yesno">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+				<field name="debug" type="radio" default="0" filter="integer" label="Debug" class="btn-group btn-group-yesno">
+					<option value="0">JNo</option>
+					<option value="1">JYes</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
