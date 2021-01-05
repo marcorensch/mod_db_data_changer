@@ -4,14 +4,9 @@
         <option value="update">MOD_DB_DA_CH_TASK_TYPE_UPD</option>
         <option value="remove">MOD_DB_DA_CH_TASK_TYPE_DEL</option>
     </field>
-    <field
-            type="text"
-            name="table"
-            label="MOD_DB_DA_CH_TBL_LBL"
-            description="MOD_DB_DA_CH_TBL_DES"
-            pattern="^#__([a-z]|_)*"
-            required="true"
-    />
+    <field type="dbtableselect" name="table" label="MOD_DB_DA_CH_TBL_LBL"
+           description="MOD_DB_DA_CH_TBL_DES" required="true" />
+
     <field type="spacer" name="where_spacer" label="MOD_DB_DA_CH_WHERE_LBL" />
     <field
             name="where"

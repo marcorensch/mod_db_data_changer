@@ -9,6 +9,8 @@ defined('_JEXEC') or die;
 * @license     GNU General Public License version 2 or later; see LICENSE.txt
 */
 
+use Joomla\CMS\Date\Date;
+
 class ModDbDataChanger {
     public static function prepareTask($params){
         $responses = array();
@@ -37,11 +39,25 @@ class ModDbDataChanger {
                     }
                 }
             }
-            if(count($conditions) || !$params->get('prevent_full_del',1)){
-                $responses[] = self::doTask($task->task_type, $table, $conditions, $updates);
-            }else{
-                $responses[] = array('status'=>'danger','status_text'=> 'Task Canceled, no conditions where set & "prevent full deletion" is enabled');
+            switch($task->task_type){
+                case 'update':
+                    if(count($conditions)){
+                        $responses[] = self::doTask($task->task_type, $table, $conditions, $updates);
+                    }else{
+                        $responses[] = array('status'=>'danger','status_text'=> 'Task Canceled, no conditions where set - your Query will not work');
+                    }
+                    break;
+                case 'remove':
+                    if(count($conditions) || !$params->get('prevent_full_del',1)){
+                        $responses[] = self::doTask($task->task_type, $table, $conditions, $updates);
+                    }else{
+                        $responses[] = array('status'=>'danger','status_text'=> 'Task Canceled, no conditions where set & "prevent full deletion" is enabled');
+                    }
+                    break;
+                default:
+                    $responses[] = array('status'=>'danger','status_text'=> 'Task unknown or something went really wrong here');
             }
+
         }
         return $responses;
     }
@@ -58,8 +74,9 @@ class ModDbDataChanger {
             if($updatesSet){
                 foreach ($updatesSet as $update) {
                     if($update['is_date']){
-                        $value = JFactory::getDate()->toSql();
-                        $value = $db->quote($value);
+                        $date   = new Date($update['value']);             // Creates a new Date object based on backend setting.
+                        $value  = $date->toSql();                        // Format to SQL
+                        $value  = $db->quote($value);
                     }else{
                         $value = $db->quote($update['value']);
                     }

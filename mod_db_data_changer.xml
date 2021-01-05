@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.8" client="site" method="upgrade">
 	<name>MOD_DB_DATA_CHANGER</name>
-	<creationDate>04.01.2021</creationDate>
-	<author>marco</author>
-	<authorEmail>your@email.com</authorEmail>
-	<authorUrl>http://your.url.com</authorUrl>
-	<copyright>A copyright</copyright>
+	<creationDate>January 2021</creationDate>
+	<author>nx-designs</author>
+	<authorEmail>support@nx-designs.ch</authorEmail>
+	<authorUrl>https://www.nx-designs.ch</authorUrl>
+	<copyright>Copyright© 2021 by nx-designs</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.0</version>
+	<version>1.0.5</version>
 	<description>MOD_DB_DATA_CHANGER_XML_DESCRIPTION</description>
 
 	<files>
@@ -27,6 +27,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/modules/mod_db_data_changer/models/fields">
+				<field showon="prevent_full_del:0" type="spacer" name="warning_base" label="MOD_DB_DA_CH_WARNING_BASE" />
 				<field
 					type="text"
 					name="token"
@@ -44,6 +45,7 @@
 			</fieldset>
 			<fieldset
 					name="advanced">
+				<field showon="prevent_full_del:0" type="spacer" name="warning_adv" label="MOD_DB_DA_CH_WARNING_BASE" />
 				<field name="show_messages" type="radio" default="1" filter="integer" label="MOD_DB_DA_CH_MSGS_LBL" class="btn-group btn-group-yesno">
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
@@ -52,10 +54,12 @@
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
 				</field>
-				<field name="prevent_full_del" type="radio" default="1" filter="integer" label="Prevent Full Deletion" class="btn-group btn-group-yesno">
+
+				<field name="prevent_full_del" type="radio" default="1" filter="integer" label="MOD_DB_DA_CH_SG_LBL" description="MOD_DB_DA_CH_SG_DES" class="btn-group btn-group-yesno">
 					<option value="0">JNo</option>
 					<option value="1">JYes</option>
 				</field>
+				<field type="spacer" name="safeguardInfo" class="span6" label="MOD_DB_DA_CH_SG_DES" />
 			</fieldset>
 		</fields>
 	</config>
